@@ -21,7 +21,7 @@ public class Main {
             mostrarImagem(img, "Imagem Original");
 
 
-            floodFill.floodFillFila(startX, startY, fillColor);
+            floodFill.floodFillPilha(startX, startY, fillColor);
 
 
             File output = new File("src/img/output.png");

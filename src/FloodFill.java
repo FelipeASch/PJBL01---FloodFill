@@ -85,8 +85,8 @@ public class FloodFill extends JPanel {
         img.setRGB(x, y, novaCor);
 
         adicionarVizinho(x + 1, y, pilha);
-        adicionarVizinho(x - 1, y, pilha);
         adicionarVizinho(x, y + 1, pilha);
+        adicionarVizinho(x - 1, y, pilha);
         adicionarVizinho(x, y - 1, pilha);
     }
     private void pegarVizinhos(int x, int y, Fila<Point> fila) {

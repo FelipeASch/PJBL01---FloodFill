@@ -16,7 +16,7 @@ public class Pilha<T> {
         } else {
             /* topo.previous = topo;
             topo.next = null; */
-            pilha.removePrimeiro();
+            pilha.removeTopo();
             return topo.value;
         }
     }

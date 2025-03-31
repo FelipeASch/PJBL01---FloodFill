@@ -41,4 +41,13 @@ public class LinkedList<E> {
             base.previous = null;
         }
     }
+    public void removeTopo(){
+        if (base == topo) {
+            topo = base = null;
+        } else {
+            topo = topo.previous;
+            topo.next = null;
+        }
+
+    }
 }
