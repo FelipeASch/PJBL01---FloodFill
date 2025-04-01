@@ -1,4 +1,3 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,8 +10,6 @@ public class FloodFill extends JPanel {
     private Timer timer;
     private int corAlvo, novaCor;
     private int pixelsPerStep = 10;
-
-    // Callback para notificar conclusão (pode ser configurado externamente)
     private Runnable onComplete;
 
     public FloodFill(BufferedImage img) {
@@ -49,8 +46,7 @@ public class FloodFill extends JPanel {
     }
 
     private void animar(boolean isPilha) {
-        // Ajuste o delay para um valor perceptível, por exemplo, 50ms
-        timer = new Timer(50, e -> {
+        timer = new Timer(5, e -> {
             if (isPilha) {
                 pintarEmPilha();
             } else {
@@ -86,7 +82,6 @@ public class FloodFill extends JPanel {
         repaint();
     }
 
-    // Sobrecarga para Pilha
     private void pegarVizinhos(int x, int y, Pilha<Point> pilha) {
         if (img.getRGB(x, y) != corAlvo) return;
 
@@ -97,7 +92,6 @@ public class FloodFill extends JPanel {
         adicionarVizinho(x, y - 1, pilha);
     }
 
-    // Sobrecarga para Fila
     private void pegarVizinhos(int x, int y, Fila<Point> fila) {
         if (img.getRGB(x, y) != corAlvo) return;
 
@@ -108,14 +102,12 @@ public class FloodFill extends JPanel {
         adicionarVizinho(x, y - 1, fila);
     }
 
-    // Sobrecarga para Pilha
     private void adicionarVizinho(int x, int y, Pilha<Point> pilha) {
         if (x >= 0 && x < width && y >= 0 && y < height && img.getRGB(x, y) == corAlvo) {
             pilha.push(new Point(x, y));
         }
     }
 
-    // Sobrecarga para Fila
     private void adicionarVizinho(int x, int y, Fila<Point> fila) {
         if (x >= 0 && x < width && y >= 0 && y < height && img.getRGB(x, y) == corAlvo) {
             fila.enqueue(new Point(x, y));

@@ -23,6 +23,7 @@ public class LinkedList<E> {
         if(topo == null) {
             return null;
         }
+
         Node<E> atual = topo;
         while(atual.previous != null){
             atual = atual.previous;

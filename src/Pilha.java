@@ -14,8 +14,6 @@ public class Pilha<T> {
         if(topo == null) {
             return null;
         } else {
-            /* topo.previous = topo;
-            topo.next = null; */
             pilha.removeTopo();
             return topo.value;
         }
